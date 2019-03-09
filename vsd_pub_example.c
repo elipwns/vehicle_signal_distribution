@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
     vsd_desc_t* desc;
     vsd_context_t* ctx = 0;
     int res;
-    char opt = 0;
+    int opt = 0;
     char sig[1024];
     char *val;
 
