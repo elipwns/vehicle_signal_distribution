@@ -69,20 +69,23 @@ install:
 	install -d ${DESTDIR}/bin
 	install -m 0755 ${EXAMPLE_TARGET_CLIENT} ${DESTDIR}/bin
 	install -m 0755 ${EXAMPLE_TARGET_SERVER} ${DESTDIR}/bin
-	install -m 0755 vss_rel_2.0.0-alpha+005.csv ${DESTDIR}/share/vss_rel_2.0.0-alpha+005.csv
+	install -d ${DESTDIR}/share
+	install -m 0755 vss_rel_*.csv ${DESTDIR}/share
+	install -d ${DESTDIR}/lib
+	install -m 0755 ${TARGET_OBJECT} ${DESTDIR}/lib
 
 uninstall:
 	rm -f ${DESTDIR}/bin/${EXAMPLE_TARGET_CLIENT}
 	rm -f ${DESTDIR}/bin/${EXAMPLE_TARGET_SERVER}
-	rm -f ${DESTDIR}/share/vss_rel_2.0.0-alpha+005.csv
+	rm -f ${DESTDIR}/share/vss_rel_*.csv
 #
 # The client is built as a regular binary
 #
 $(TARGET_NOMACRO_CLIENT) : $(CLIENT_NOMACRO_OBJ)
-	$(CC) --static $(CFLAGS) $^ -ldstc -lrmc -o $@
+	$(CC)  $(CFLAGS) $^ -ldstc -lrmc -o $@
 
 $(TARGET_NOMACRO_SERVER): $(SERVER_NOMACRO_OBJ)
-	$(CC) --static $(CFLAGS) $^ -ldstc -lrmc -o $@
+	$(CC)  $(CFLAGS) $^ -ldstc -lrmc -o $@
 
 
 $(CLIENT_NOMACRO_SOURCE): ${CLIENT_SOURCE} -Idstc.h
