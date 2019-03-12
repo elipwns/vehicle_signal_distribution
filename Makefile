@@ -73,6 +73,8 @@ install:
 	install -m 0755 vss_rel_*.csv ${DESTDIR}/share
 	install -d ${DESTDIR}/lib
 	install -m 0755 ${TARGET_OBJECT} ${DESTDIR}/lib
+	install -d ${DESTDIR}/include
+	install -m 0755 vsd.h ${DESTDIR}/include
 
 uninstall:
 	rm -f ${DESTDIR}/bin/${EXAMPLE_TARGET_CLIENT}
