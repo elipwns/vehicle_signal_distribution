@@ -283,7 +283,7 @@ point in the local tree in order to find subscribers where any subscription
 callbacks registered at that signal/branch will be invoked.
 
 ![Subscriber step 2](illustrations/vsd_sub_5.png "Setting up subscription")
-*Fig. 12. Invoking callbacks.
+*Fig. 12. Invoking callbacks.*
 
 Once the immediate subscriber callbacks have been invoked, the parents
 for the published signal/branch will be traversed upward toward the
